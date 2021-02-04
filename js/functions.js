@@ -1,4 +1,5 @@
-"use strict";
+(function () {
+    "use strict";
 
 /**
  * Create a function called 'sayHello' that takes a parameter 'name'.
@@ -54,7 +55,6 @@ function isTwo(random){
 }
 console.log(isTwo(random));
 /**
- * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
  * restaurant. The function should accept a tip percentage and the total of the
  * bill, and return the amount to tip
@@ -102,3 +102,4 @@ var discountPercent = Number(prompt("What is the percentage of the discount? (Be
 alert("We're applying that for you.");
 alert("Your discounted price is $" + applyDiscount(originalPrice, discountPercent));
 console.log("Your discounted price is " + applyDiscount(originalPrice, discountPercent));
+})();
