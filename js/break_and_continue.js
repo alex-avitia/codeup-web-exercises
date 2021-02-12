@@ -12,7 +12,7 @@ for (var i = 0; i < Infinity; i++) {
 alert("Number to skip: " + input + ". Check console.");
 
 var numberToSkip = input;
-console.log(numberToSkip);
+
 function skipMyNumber (number) {
     for (var i = 1; i <= 50; i++) {
 
