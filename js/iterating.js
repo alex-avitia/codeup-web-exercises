@@ -6,7 +6,7 @@
      * 'names'.
      */
 
-    var names = ["Saradomin", "Guthix", "Zamorak", "Armadyl"];
+    var names = ["Saradomin", "Guthix", "Zamorak", "Armadyl", "Bandos", "Zaros"];
 
     /**
      * Create a log statement that will log the number of elements in the names
@@ -24,6 +24,8 @@
     console.log(names[1]);
     console.log(names[2]);
     console.log(names[3]);
+    console.log(names[4]);
+    console.log(names[5]);
 
     /**
      * Write some code that uses a for loop to log every item in the names
