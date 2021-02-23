@@ -39,7 +39,8 @@
      */
 
     names.forEach(function(name){
-        console.log(name);
+        console.log(name + "?");
+
     })
 
     /**
@@ -69,5 +70,5 @@
 
     console.log("The first names is " + first(names));
     console.log("The second name is " + second(names));
-    console.log("The third name is  " + last(names));
+    console.log("The last name is  " + last(names));
 })();
