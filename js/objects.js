@@ -32,7 +32,7 @@
         alert("Hello from " + person.firstName + " " + person.lastName)
     }
 
-    console.log(person.sayHello());
+    person.sayHello();
 
     /**
      * HEB has an offer for the shoppers that buy products amounting to
@@ -176,14 +176,30 @@
      *   `showBookInfo` function.
      */
 
-    var moreBooks = [];
 
-    function createBook (title, author) {
-        for (var i = 0; i < 3; i++) {
-            moreBooks[i] = {title: title, author: author};
-        }
+
+    function createBook (title, authorFirst, authorLast) {
+        return {
+            title: title,
+            author: {
+                firstName: authorFirst,
+                lastName: authorLast
+            }
+        };
     }
 
-    console.log(createBook(bookOne.title, bookOne.author));
+    function showBookInfo(bookObject, bookNumber){
+        console.log("Book # " + (bookNumber + 1));
+        console.log("Title: " + bookObject.title);
+        console.log("Author: " + bookObject.author.firstName + " " + bookObject.author.lastName);
+        console.log("---");
+    }
+
+    books.push(createBook("Traction", "Gino", "Whitman"));
+
+    books.forEach(function(book, count){
+        showBookInfo(book, count);
+    })
+
 
 })();
