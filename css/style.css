@@ -1,0 +1,33 @@
+.fancy-header {
+    color: rebeccapurple;
+    text-decoration: underline;
+}
+
+body {background-color: navajowhite}
+
+.class1 {
+    color: orangered;
+}
+
+.class2 {
+    background-color: cadetblue;
+}
+
+section p {
+    background-color: aquamarine;
+}
+
+/* ------------ COMBINING SELECTORS   */
+
+p.comic {
+    font-family: serif;
+}
+
+h2#comic {
+    font-family: serif;
+    font-size: 50px;
+}
+
+li:hover {
+    background-color: rebeccapurple;
+}
