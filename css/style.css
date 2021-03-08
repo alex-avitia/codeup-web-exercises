@@ -1,8 +1,16 @@
+header {
+    text-align: center;
+}
+
 body {background-color: navajowhite}
 
-body{background-image: url("https://cdn.pixabay.com/photo/2018/07/14/12/19/image-3537497_960_720.jpg");}
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2018/07/14/12/19/image-3537497_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: 1440px 1800px;
+}
 
-#container h1.fancy-header {
+#container p.fancy-header, h1.fancy-header {
     margin: 50px auto;
     width: 500px;
     padding: 10px;
@@ -12,11 +20,11 @@ body{background-image: url("https://cdn.pixabay.com/photo/2018/07/14/12/19/image
 }
 
 #container {
-    font-family: "Apple Chancery";
+    font-family: 'Titillium Web', sans-serif;
 }
 
-tr.padding {
-    padding: 20px;
+table.padding {
+    padding: 10px;
 }
 
 ul.fancy-list {
@@ -27,7 +35,10 @@ ol.fancy-list {
     list-style-type: upper-roman;
 }
 
-
 li:hover {
     background-color: lightseagreen;
+}
+
+.article>a {
+    float: right;
 }
