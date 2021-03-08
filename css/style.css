@@ -23,8 +23,15 @@ body{
     font-family: 'Titillium Web', sans-serif;
 }
 
-table.padding {
-    padding: 10px;
+table {
+    border: thin solid black;
+    padding: 8px;
+}
+
+th, td {
+    border: thin dotted black;
+    padding: 8px;
+
 }
 
 ul.fancy-list {
