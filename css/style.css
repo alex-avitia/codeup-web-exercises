@@ -1,33 +1,33 @@
-.fancy-header {
-    color: rebeccapurple;
+body {background-color: navajowhite}
+
+body{background-image: url("https://cdn.pixabay.com/photo/2018/07/14/12/19/image-3537497_960_720.jpg");}
+
+#container h1.fancy-header {
+    margin: 50px auto;
+    width: 500px;
+    padding: 10px;
+}
+#container .fancy-header {
     text-decoration: underline;
 }
 
-body {background-color: navajowhite}
-
-.class1 {
-    color: orangered;
+#container {
+    font-family: "Apple Chancery";
 }
 
-.class2 {
-    background-color: cadetblue;
+tr.padding {
+    padding: 20px;
 }
 
-section p {
-    background-color: aquamarine;
+ul.fancy-list {
+    list-style-type: square;
 }
 
-/* ------------ COMBINING SELECTORS   */
-
-p.comic {
-    font-family: serif;
+ol.fancy-list {
+    list-style-type: upper-roman;
 }
 
-h2#comic {
-    font-family: serif;
-    font-size: 50px;
-}
 
 li:hover {
-    background-color: rebeccapurple;
+    background-color: lightseagreen;
 }
