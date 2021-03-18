@@ -1,13 +1,6 @@
 * { /* Universal Selector */
     box-sizing: border-box;
 }
-header nav a {
-    color: black;
-    display: ;
-}
-header nav a:hover {
-    color: blue;
-}
 body {
     margin: 0;
 }
@@ -15,38 +8,41 @@ nav {
     display: flex;
     background: darkgrey;
     height: 3em;
-    position: relative;
+    justify-content: space-between;
 }
-nav ul {
+header nav a {
+    color: black;
+    display: inline-block;
+    font-family: 'Work Sans', sans-serif;
+    text-decoration: none;
+    padding: 2em .5em;
+}
+header nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex; /* made unordered list a flex container */
     align-items: center;
+}
+header nav .nav-bar-logo {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+header nav .nav-bar-logo li {
     width: 100%;
 }
-nav a {
-    text-decoration: none;
-    color: white;
-    font-family: Verdana;
-    display: inline-block; /* inline-block to increase clickable area beyond the text */
-    padding: 1em; /* increases clickable area of anchor tags on all sides by 1em */
+header nav .nav-bar-logo a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    padding: 0 2em 0;
 }
-nav ul li:nth-child(6) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-    margin-left: auto;
-}
-.icons {
-    display: flex;
+header nav ul .nav-bar-right {
     justify-content: flex-end;
 }
-.icons i {
-     font-size: 2.2em;
- }
-#logo {
-    font-size: 2em;
-    position: absolute;
+ul:not(.nav-bar-logo) {
+    z-index: 100;
+}
+header nav a:hover {
+    color: blue;
 }
