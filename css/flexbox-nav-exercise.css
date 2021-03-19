@@ -7,7 +7,6 @@ body {
 nav {
     display: flex;
     background: darkgrey;
-    height: 3em;
     justify-content: space-between;
 }
 header nav a {
@@ -16,6 +15,9 @@ header nav a {
     font-family: 'Work Sans', sans-serif;
     text-decoration: none;
     padding: 2em .5em;
+}
+header nav a:hover {
+    color: blue;
 }
 header nav ul {
     list-style: none;
@@ -34,15 +36,12 @@ header nav .nav-bar-logo li {
 }
 header nav .nav-bar-logo a {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
-    padding: 0 2em 0;
-}
-header nav ul .nav-bar-right {
-    justify-content: flex-end;
+    font-size: 3em;
+    padding: .2em 0;
 }
 ul:not(.nav-bar-logo) {
     z-index: 100;
 }
-header nav a:hover {
-    color: blue;
+.bi {
+    align-content: flex-end;
 }
