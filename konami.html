@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossOrigin="anonymous"></script>
+</head>
+<body>
+<h1>Konami Code</h1>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+        console.log(event.key);
+    });
+
+
+    var secretCode = {
+
+        konami: function() {
+            var konamiKeys = [38,38,40,40,37,39,37,39,66,65,13];
+            var begin = false;
+            var count = 0;
+            var audioRain = document.createElement('audio');
+            var audioJunction = document.createElement('audio');
+            audioRain.setAttribute('src', 'https://www.soundjay.com/nature/sounds/rain-07.mp3');
+            audioJunction.setAttribute('src', './audio/KOKOROKO - ABUSEY JUNCTION WE OUT HERE.mp3');
+
+
+            $(document).keydown(function(e){
+                var reset = function() {
+                    begin = false;
+                    count = 0;
+                };
+
+                var key = e.keyCode;
+
+                if(!begin){
+                    if(key === 38){
+                        begin = true;
+                    }
+                }
+
+                if (begin){
+
+                    if (konamiKeys[count] === key){
+                        count++;
+                    } else {
+                        reset();
+                    }
+                    if (count === 11){
+                        $('body').css({
+                            'background-image': 'url(https://thumbs.gfycat.com/PlushAchingFugu-size_restricted.gif)',
+                            'background-size': 'cover',
+                            'background-repeat': 'no-repeat',
+                            'background-position': 'center',
+                            'width': '100%',
+                            'height': '100%'
+                        });
+                        audioRain.play();
+                        audioJunction.play();
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+    }
+
+    secretCode.konami();
+</script>
+</body>
+</html>
