@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox API Exercise</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <script src="js/keys.js"></script>
+    <script src="js/mapbox-geocoder-utils.js"></script>
+    <div id='map' style='width: 400px; height: 300px;'></div>
+    <script>
+        mapboxgl.accessToken = mapboxToken;
+
+        var mapOptions = {
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/dark-v10', // style URL
+            center: [-98.4861, 29.4252], // starting position [lng, lat]
+            zoom: 10
+        }
+        var map = new mapboxgl.Map(mapOptions);
+
+        var marcoMap = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/dark-v10",
+            center: [-98.4861, 29.426],
+            zoom: 4
+        })
+
+        var whiskeyMarker = new mapboxgl.Marker({color: "darkorange", draggable: true}).setLngLat([-98.4861, 29.426]).addTo(marcoMap)
+        var arirangMarker = new mapboxgl.Marker({color: "rebeccapurple", draggable: true}).setLngLat([-98.4861, 29.426]).addTo(marcoMap)
+        var smashinMarker = new mapboxgl.Marker({color: "red", draggable: true}).setLngLat([-98.4861, 29.426]).addTo(marcoMap)
+
+
+        geocode("15900 La Cantera Pkwy Ste 21200, San Antonio, TX 78256", mapboxToken).then(function(results){
+            console.log("Whiskey Cake");
+            marcoMap.setCenter(results);
+        })
+        geocode("2154 Austin Hwy, San Antonio, TX 78218", mapboxToken).then(function(results){
+            console.log("Arirang Korean Food");
+            marcoMap.setCenter(results);
+        })
+        geocode("68910 Bandera Rd #305, San Antonio, TX 78250", mapboxToken).then(function(results){
+            console.log("Smashin' Crab");
+            marcoMap.setCenter(results);
+        })
+    </script>
+</body>
+</html>
