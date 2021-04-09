@@ -4,7 +4,7 @@
     <title>Online Store</title>
 </head>
 <body>
-
+<button id="refresh">Refresh</button>
 <h1>My Tool Store</h1>
 
 <table id="products">
@@ -41,26 +41,28 @@
 
     function displayTools() {
         myInventory.done(function (data) {
-            var newTable = "<tr>";
-            $('#insertProducts').append(newTable);
             $.each(data, function (index, tool) {
                 var content = "";
                 content += "<td>"
-                content +=  tool.title
+                content += tool.title
                 content += tool.quantity
                 content += tool.price
                 content += tool.categories
                 content += "</td>"
-                content += "<br>"
                 console.log(content);
                 $('#insertProducts').append(content);
             });
-            newTable += "</td>";
         });
     }
 
 
     displayTools();
+
+    $('#refresh').click(function(e){
+        console.log("Refresh was used.");
+
+
+    });
 })();
 </script>
 
