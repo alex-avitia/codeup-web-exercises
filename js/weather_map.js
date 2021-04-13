@@ -1,18 +1,18 @@
  "use strict";
 
-    //mapbox token
-    mapboxgl.accessToken = mapboxToken;
+//mapbox token
+ mapboxgl.accessToken = mapboxToken;
 
-    var mapOptions = {
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/dark-v10', // style URL
-    center: [-98.4861, 29.5252], // starting position [lng, lat]
-    zoom: 10
-}
+ var mapOptions = {
+     container: 'map', // container ID
+     style: 'mapbox://styles/mapbox/dark-v10', // style URL
+     center: [-98.4861, 29.5252], // starting position [lng, lat]
+     zoom: 10
+ }
 
-    var map = new mapboxgl.Map(mapOptions);
+ var map = new mapboxgl.Map(mapOptions);
 
-    var marcoMap = new mapboxgl.Map({
+ var marcoMap = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/dark-v10",
     center: [-98.4861, 29.526],
@@ -20,7 +20,7 @@
 })
 
     //console logs weather in SA
-    $.get("https://api.openweathermap.org/data/2.5/onecall", {
+ $.get("https://api.openweathermap.org/data/2.5/onecall", {
     appid: OPEN_WEATHER_APPID,
     lat: 29.423017,
     lon: -98.48527,
@@ -31,11 +31,11 @@
 })
 
     //dis my marker
-    var currentLocationMarker = new mapboxgl.Marker({color: "orange", draggable: true})
+ var currentLocationMarker = new mapboxgl.Marker({color: "orange", draggable: true})
     .setLngLat([-98.4861, 29.426])
     .addTo(marcoMap);
 
-    currentLocationMarker.on("dragend", () => markerDragEnd());
+ currentLocationMarker.on("dragend", () => markerDragEnd());
     //displays coords of marker
     function markerDragEnd() {
     var markerCoords = currentLocationMarker.getLngLat();
@@ -52,11 +52,4 @@
     //
     // -As a bonus make sure you can update the marker's position to the new search result.
 
-    //search bar JS
-    const searchButton = document.getElementById('search-button');
-    const searchInput = document.getElementById('search-input');
-    searchButton.addEventListener('click', () => {
-    const inputValue = searchInput.value;
-    alert(inputValue);
-});
 
