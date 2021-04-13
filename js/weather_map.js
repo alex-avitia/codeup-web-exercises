@@ -1,5 +1,19 @@
  "use strict";
 
+ const searchForm = document.getElementById("searchForm");
+ const searchInput = document.getElementById("searchInput");
+ const searchBtn = document.getElementById("searchBtn");
+
+ searchForm.addEventListener("submit", (e) => {
+     e.preventDefault();
+ });
+
+ searchBtn.addEventListener("click", async () => {
+     if (searchInput.value === "") return;
+     const weatherData = await weather.getData(searchInput.value);
+     view.setSearchResult(weatherData);
+ });
+
 //mapbox token
  mapboxgl.accessToken = mapboxToken;
 
@@ -31,7 +45,7 @@
 })
 
     //dis my marker
- var currentLocationMarker = new mapboxgl.Marker({color: "orange", draggable: true})
+ var currentLocationMarker = new mapboxgl.Marker({color: "#ffc107", draggable: true})
     .setLngLat([-98.4861, 29.426])
     .addTo(marcoMap);
 
