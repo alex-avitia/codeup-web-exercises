@@ -3,7 +3,9 @@
 //function that takes username, applies to url string. Returns the date of the user's last commit/push.
 
 function lastCommit(username) {
-    return fetch(`https://api.github.com/users/${username}/events`, {headers: {'Authorization': 'token ' + githubToken}})
+    let url = `https://api.github.com/users/${username}/events`;
+    let githubResponse = fetch(url, {headers: {'Authorization': `token ${githubToken}`}});
+    return githubResponse
         .then(response => response.json())
         .then(json => {
             let lastCommitDate = json.filter(event => event.type === "PushEvent")[0].created_at.slice(0, 10);
