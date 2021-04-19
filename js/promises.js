@@ -1,5 +1,6 @@
 "use strict";
 
+//function that takes username, applies to url string. Returns the date of the user's last commit/push.
 
 function lastCommit(username) {
     return fetch(`https://api.github.com/users/${username}/events`, {headers: {'Authorization': 'token ' + githubToken}})
@@ -13,5 +14,16 @@ function lastCommit(username) {
 
 lastCommit("alex-avitia");
 
-// TODO: Create a function that accepts a GitHub username, and returns a promise that resolves returning just the date of the last commit that user made. Reference the github api documentation to achieve this.
+//function to set a timer
 
+    function wait(time) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve();
+                reject(`Your request has failed.`);
+            }, time);
+        });
+    }
+
+wait(1000).then(() => console.log('You\'ll see this after 1 second'));
+wait(3000).then(() => console.log('You\'ll see this after 3 seconds'));
