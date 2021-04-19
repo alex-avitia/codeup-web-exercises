@@ -50,16 +50,16 @@ console.log(moreThanThreeLanguages);
 
 // TODO: Use .map to create an array of strings where each element is a user's email address
 
-let allEmails = users.map(function(email){
-    return email.email;
+let allEmails = users.map(function(user){
+    return user.email;
 });
 
 console.log(allEmails);
 
 // TODO: Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
 
-let totalExperience = users.reduce(function(total, years){
-    return (total + years.yearsOfExperience) / users.length;
+let totalExperience = users.reduce(function(total, user){
+    return (total + user.yearsOfExperience) / users.length;
 }, 0);
 
 console.log(totalExperience);
@@ -67,18 +67,26 @@ console.log(totalExperience);
 // TODO: Use .reduce to get the longest email from the list of users.
 
 
-let strLengthObj = allEmails.reduce(function(object, element){
-    object[element] = element.length;
-    return object;
-    }, {})
+let longestEmail = users.reduce(function(longestEmail, user) {
 
-let keys = Object.keys(strLengthObj);
-let max = strLengthObj[keys[0]];
-let value;
+    if(user.email.length > longestEmail.length){
+        longestEmail = user.email
+    }
+    return longestEmail;
 
-for (let i = 0; i < keys.length; i++) {
-    value = strLengthObj[keys[i]];
-    if (value > max) max = value;
-}
+}, "")
+
+console.log(longestEmail);
 
 // TODO: Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
+
+let usernameString = users.reduce(function(accumulator, user){
+    return `${accumulator} ${user.name}`;
+}, 'instructors are: ').slice(0, -1) + ".";
+
+console.log(usernameString);
+
+
+//consider this the proper solution, ignoring the requirement of 'reduce'
+let mapJoinSolution = `${users.map(user=>user.name).join(', ')}.`;
+console.log(mapJoinSolution);
