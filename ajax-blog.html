@@ -10,8 +10,42 @@
 </head>
 <body>
     <div id="posts">
-
-
     </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            var blogPosts = $.get('data/blog.json');
+
+            function onSuccess (data){
+                console.log(data);
+            }
+
+            blogPosts.done(onSuccess);
+
+            function displayBlogs() {
+                blogPosts.done(function (data) {
+                    $.each(data, function (index, blog) {
+                        var content = "";
+                        content += "<p><strong>"
+                        content += blog.title
+                        content += "</strong><br>Date: "
+                        content += blog.date
+                        content += "<br><br>"
+                        content += blog.content
+                        content += "<br><em>Categories: "
+                        content += blog.categories
+                        content += "</em></p><br>"
+                        console.log(content);
+                        $('#posts').append(content);
+                    });
+                });
+            }
+
+
+            displayBlogs();
+        })();
+    </script>
 </body>
 </html>
