@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css'
+          rel='stylesheet' />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet"
+          href="css/weather_map.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald&display=swap" rel="stylesheet">
+
     <!-- Mapbox API -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
@@ -14,17 +31,6 @@
     <title>Weather App</title>
 </head>
 <body>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-
     <!-- Top Header -->
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <a id="brand" class="navbar-brand" href="#">Weather App</a>
@@ -32,20 +38,59 @@
     </nav>
 
     <!-- Search Bar -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar">
+        <a class="navbar-brand"></a>
         <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Find a City" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" id="searchBtn" type="submit">Search</button>
+            <input class="form-control mr-sm-2" placeholder="Location" type="search"  aria-label="Search">
+            <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav>
+    <div class="options-select">
+        <div class="map-selector form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value=""> Map
+            </label>
+        </div>
+        <label for="day-select"></label>
+        <select id="day-select" class="btn-outline-info">
+            <option class="day-options" value="2">3 Days</option>
+            <option class="day-options" value="4">5 Days</option>
+            <option class="day-options" value="6">7 Days</option>
+        </select>
+    </div>
+
+    <!--weather cards-->
+    <div class="card-container">
+        <div class="invisible-scrollbar">
+            <div class="weather-cards">
+            </div>
+        </div>
+    </div>
 
     <!-- mapbox -->
-    <div id='map' style='width: 100%; height: 400px;'></div>
-
+    <div class="map map-hidden">
+        <div id='map' style='width: 300px; height: 300px;'></div>
+    </div>
 
     <!-- custom js files -->
     <script src="js/keys.js"></script>
     <script src="js/mapbox-geocoder-utils.js"></script>
     <script src="js/weather_map.js"></script>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet"
+          href="css/weather_map.css">
+
+    <!-- bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 </body>
 </html>
